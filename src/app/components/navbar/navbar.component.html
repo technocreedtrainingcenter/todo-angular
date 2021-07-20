@@ -1,0 +1,15 @@
+<div>
+    <h1 class="heading">
+        App Name: {{ appName }}
+    </h1>
+    <h2>
+        {{ heading }}
+        {{ appName == 'TODO' ? 'Condition Match' : 'Not Match' }}
+        {{ getSubHeading() }}
+    </h2>
+
+    <input type="{{ controlType }}">
+    <input type="text" [(ngModel)]="name">
+    {{name}}
+    <button [disabled]="isDisabled" (click)="OnButtonClick('Avinash')">Submit</button>
+</div>
