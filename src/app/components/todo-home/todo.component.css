@@ -1,0 +1,10 @@
+.valid {
+    border: 1px solid green;
+    color: green;
+    font-weight: bold; 
+}
+
+.invalid {
+    border: 1px solid red;
+    color: red;
+}

@@ -3,10 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TODOFooter } from './components/todo-footer/todo-footer.component';
+import { TODOHomeComponent } from './components/todo-home/todo-home.component';
+import { TODOComponent } from './components/todo/todo-component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TODOHomeComponent,
+    TODOComponent,
+    TODOFooter
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,29 @@
+<div class="wrapper">
+    <header>Todo App</header>
+    <div class="inputField">
+        <!-- [ngStyle]="{'border': todo ? '1px solid green' : '1px solid red', color: todo ? 'green': 'red' }" -->
+      <input [ngClass]="{'valid': todo ? true: false, 'invalid': !todo ? true : false}" class="valid" type="text" placeholder="Add your new todo" [(ngModel)]="todo">
+      <button *ngIf="todo" (click)="addTodo()" [disabled]="!todo"><i class="fas fa-plus"></i></button>
+    </div>
+
+    <ul class="todoList">
+        <li *ngFor="let item of todoList; let i = index">
+            <app-todo [todoText]="item" [index]="i" (click)="onDeleteTodo(i)" (deleteTodoEvent)="onDeleteTodo(i)"></app-todo>
+        </li>
+    </ul>
+
+
+    <app-todo-footer [totalTodoCount]="todoList.length" (clearAllTodo)="clearAll()"></app-todo-footer>
+
+    <!-- <div class="footer" *ngIf="todoList.length">
+      <span>You have <span class="pendingTasks">{{ todoList.length }}</span> pending tasks</span>
+      <button >Clear All</button>
+    </div> -->
+  </div>
+
+<!-- 
+  <app-student
+   [subject]="English" (attendClass)="onAttendClass()" 
+   [noOfSubject]="4" (result)="onResult()"
+   [teacherName]="test" (techerNotAvailable)="onTracherNotAvailbale()">
+  </app-student> -->
