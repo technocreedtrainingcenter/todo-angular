@@ -1,4 +1,4 @@
 <div class="footer" >
-    <span>You have <span class="pendingTasks">{{ totalTodoCount }}</span> pending tasks</span>
+    <span>You have <span class="pendingTasks">{{ todoService.todoList.length }}</span> pending tasks</span>
     <button (click)="onClear()" type="button">Clear All</button>
   </div>

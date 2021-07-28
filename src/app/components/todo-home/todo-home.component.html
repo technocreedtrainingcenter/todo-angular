@@ -7,13 +7,13 @@
     </div>
 
     <ul class="todoList">
-        <li *ngFor="let item of todoList; let i = index">
-            <app-todo [todoText]="item" [index]="i" (click)="onDeleteTodo(i)" (deleteTodoEvent)="onDeleteTodo(i)"></app-todo>
+        <li *ngFor="let item of todoServce.todoList; let i = index">
+            <app-todo [todoText]="item" [index]="i" ></app-todo>
         </li>
     </ul>
 
 
-    <app-todo-footer [totalTodoCount]="todoList.length" (clearAllTodo)="clearAll()"></app-todo-footer>
+    <app-todo-footer ></app-todo-footer>
 
     <!-- <div class="footer" *ngIf="todoList.length">
       <span>You have <span class="pendingTasks">{{ todoList.length }}</span> pending tasks</span>
