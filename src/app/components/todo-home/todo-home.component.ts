@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { TodoService } from "src/app/services/todo.service";
 
 @Component({
     selector: 'app-todo-home',
@@ -6,15 +7,31 @@ import { Component } from "@angular/core";
     styleUrls: ['./todo.component.css']
 })
 export class TODOHomeComponent {
+
+    constructor(
+        public todoServce: TodoService
+    ) {
+        this.watchDeleteTodo();
+       
+    }
+
+    watchDeleteTodo() {
+        this.todoServce.deleteTodo.subscribe((response: any) => {
+            this.todoServce.todoList = this.todoServce.todoList.filter((item: string, i: number) => i !== response )
+            console.log('delete todo', response)
+            debugger
+        })
+    }
+
     todo = '';
 
-    todoList: any = [];
+    // todoList: any = [];
 
-    e =2;
+    e = 2;
 
     addTodo() {
         if (this.todo) {
-            this.todoList.push(this.todo)
+            this.todoServce.todoList.push(this.todo)
             this.todo = '';
         }
     }
@@ -23,15 +40,15 @@ export class TODOHomeComponent {
         console.log('button clicked')
     }
 
-    deleteTodo(index: number) {
-        this.todoList = this.todoList.filter((item: string, i: number) => i !== index )
-    }
+    // deleteTodo(index: number) {
+        
+    // }
 
-    onDeleteTodo(index: any) {
-        alert(index)
-    }
+    // onDeleteTodo(index: any) {
+    //     this.deleteTodo(index)
+    // }
 
-    clearAll() {
-        this.todoList = [];
-    }
+    // clearAll() {
+    //     this.todoServce.todoList = [];
+    // }
 }
